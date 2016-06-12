@@ -1,9 +1,7 @@
 # AlpineLinux with a glibc-2.21 and Oracle Java %JVM_MAJOR%
-FROM alpine:3.3
+FROM alpine:3.4
 
-MAINTAINER Anastas Dancha <anapsix@random.io>
-# thanks to Vladimir Krivosheev <develar@gmail.com> aka @develar for smaller image
-# and Victor Palma <palma.victor@gmail.com> aka @devx for pointing it out
+MAINTAINER flyer5200 <flyer5200@gmail.com>
 
 # Java Version and other ENV
 ENV JAVA_VERSION_MAJOR=%JVM_MAJOR% \
@@ -12,7 +10,8 @@ ENV JAVA_VERSION_MAJOR=%JVM_MAJOR% \
     JAVA_PACKAGE=%JVM_PACKAGE% \
     JAVA_HOME=/opt/jdk \
     PATH=${PATH}:/opt/jdk/bin \
-    LANG=C.UTF-8
+    LANG=C.UTF-8 \
+    TZ=CST-8
 
 # do all in one step
 RUN apk upgrade --update && \
